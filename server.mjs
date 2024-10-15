@@ -18,8 +18,11 @@ app.listen(PORT, () => {
 
 
 
-// Set up multer for file uploads
-const upload = multer({ dest: 'uploads/' });
+// Define the upload route
+app.post('/upload', (req, res) => {
+    // Handle the file upload logic here
+    res.send('File uploaded successfully!'); // Example response
+});
 
 // Initialize Octokit with the GitHub token
 const octokit = new Octokit({

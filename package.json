@@ -1,6 +1,13 @@
 "scripts": {
   "start": "node server.mjs"
-}
+},
+{
+  "name": "your-app-name",
+  "version": "1.0.0",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  },
 
 {
   "dependencies": {

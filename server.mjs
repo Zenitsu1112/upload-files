@@ -11,6 +11,12 @@ const PORT = 3000;
 
 app.use(express.static('public'));
 
+// Define the upload route
+app.post('/uploads', (req, res) => {
+    // Handle the file upload logic here
+    res.send('File uploaded successfully!'); // Example response
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
@@ -18,11 +24,7 @@ app.listen(PORT, () => {
 
 
 
-// Define the upload route
-app.post('/uploads', (req, res) => {
-    // Handle the file upload logic here
-    res.send('File uploaded successfully!'); // Example response
-});
+
 
 // Initialize Octokit with the GitHub token
 const octokit = new Octokit({

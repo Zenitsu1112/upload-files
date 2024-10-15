@@ -26,10 +26,11 @@ app.get('/', (req, res) => {
 });
 
 // Upload file route
-app.post('/upload', upload.single('file'), async (req, res) => {
-  if (!req.file) {
-    return res.status(400).send('No file uploaded.');
-  }
+app.post('/upload', (req, res) => {
+  console.log('Upload route accessed');
+  res.send('Route is accessible');
+});
+
 
   const fileName = req.file.originalname; // File name
   const fileContent = req.file.buffer; // File content from memory buffer

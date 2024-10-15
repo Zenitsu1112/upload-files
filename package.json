@@ -1,5 +1,6 @@
-"scripts": {
+{"scripts": {
   "start": "node server.mjs"
+}
 },
 
 

@@ -11,6 +11,12 @@ const PORT = 3000;
 
 app.use(express.static('public'));
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
+
+
 
 // Set up multer for file uploads
 const upload = multer({ dest: 'uploads/' });

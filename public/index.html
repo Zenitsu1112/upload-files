@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub File Uploader</title>
+</head>
+<body>
+    <h1>Upload a File to GitHub</h1>
+    <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2>Available Files</h2>
+    <ul id="fileList"></ul>
+
+    <script>
+        async function fetchFiles() {
+            const response = await fetch('/files');
+            const files = await response.json();
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
+
+            files.forEach(file => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<a href="/download/${file.name}">${file.name}</a>`;
+                fileList.appendChild(listItem);
+            });
+        }
+
+        // Fetch files on page load
+        window.onload = fetchFiles;
+    </script>
+</body>
+</html>
